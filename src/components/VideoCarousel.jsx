@@ -46,7 +46,7 @@ const VideoCarousel = () => {
 			},
 		});
 	}, [isEnd, videoId]);
-
+		
 	useEffect(() => {
 		if (loadedData.length > 3) {
 			if (!isPlaying) {
@@ -56,10 +56,6 @@ const VideoCarousel = () => {
 			}
 		}
 	}, [startPlay, videoId, isPlaying, loadedData]);
-
-	const handleLoadedMetaData = (i, e) => {
-		setLoadedData((prevVideo) => [...prevVideo, e]);
-	};
 
 	useEffect(() => {
 		let currentProgress = 0;
@@ -121,6 +117,7 @@ const VideoCarousel = () => {
 		}
 	}, [videoId, startPlay]);
 
+
 	const handleProcess = (type, i) => {
 		switch (type) {
 			case 'video-end':
@@ -158,6 +155,10 @@ const VideoCarousel = () => {
 			default:
 				return video;
 		}
+	};
+
+	const handleLoadedMetaData = (i, e) => {
+		setLoadedData((prevVideo) => [...prevVideo, e]);
 	};
 
 	return (
