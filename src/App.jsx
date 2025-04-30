@@ -1,24 +1,17 @@
-import Features from './components/Features';
-import Footer from './components/Footer';
-import Hero from './components/Hero';
-import Highlights from './components/Highlights';
-import HowItWorks from './components/HowItWorks';
-import Model from './components/Model';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Homepage from './pages/Homepage';
+import NotFound from './pages/NotFound';
 
 const App = () => {
 	return (
-		<main className='bg-black'>
-			<Navbar />
-			<Hero />
-			<Highlights />
-			<Model />
-			<Features />
-			<HowItWorks />
-			<Footer />
-		</main>
+		<Router>
+			<Routes>
+				<Route path='/' element={<Homepage />} />
+				<Route path='*' element={<NotFound />} />
+			</Routes>
+		</Router>
 	);
 };
 
 export default App;
-// export default Sentry.withProfiler(App);
